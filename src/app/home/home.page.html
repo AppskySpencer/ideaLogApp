@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Idea Log
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div style="margin: 50px;">
+    <div>
+      <h1>Add your new ideas here!</h1>
+      <ion-input [(ngModel)]="newIdea" class="idea-input" type="text"></ion-input>
+      <ion-button (click)="saveIdea()" class="">Submit</ion-button>
+      <ion-button (click)="clearList()" color="danger">Clear List</ion-button>
+    </div>
+    <div style="margin-top: 50px">
+      <ion-list>
+        <ion-item *ngFor="let idea of ideaList; let i = index;">
+          <ion-label>{{i + 1}}. {{idea}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </ion-content>
